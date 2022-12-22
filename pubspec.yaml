@@ -20,7 +20,3 @@ dependencies:
   simple_dart_view_controller: ^0.0.1
 
 
-
-dev_dependencies:
-  build_runner: ^2.3.2
-  build_web_compilers:
