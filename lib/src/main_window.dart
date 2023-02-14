@@ -106,13 +106,13 @@ void showFatalError(Object errObj) {
   modalController.onClick.listen((event) {
     window.location.assign('/');
   });
-  modalController.showComponentModal(Label()..caption = errText);
+  modalController.showModal(Label()..caption = errText);
   throw Exception(errObj);
 }
 
 String showError(Object errObj) {
   final errText = convertError(errObj);
-  modalController.showComponentModal(Label()..caption = errText);
+  modalController.showModal(Label()..caption = errText);
   return errText;
 }
 

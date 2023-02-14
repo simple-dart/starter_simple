@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Update modal_controller to version 0.0.2
+
 ## 0.0.3
 
 - Update SelectField to version 0.0.2
