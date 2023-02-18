@@ -1,6 +1,6 @@
 name: simple_dart_starter_simple
 description: preconfigured application main window with navigation, path_bar and theme selection
-version: 0.0.4
+version: 0.0.5
 repository: https://github.com/simple-dart/starter_simple
 platforms:
   web:
@@ -11,12 +11,13 @@ environment:
 
 dependencies:
   simple_dart_checkbox: ^0.0.2
+  simple_dart_dropdown: ^0.0.1
   simple_dart_label: ^0.0.1
   simple_dart_link: ^0.0.1
-  simple_dart_modal_controller: ^0.0.2
-  simple_dart_select_field: ^0.0.2
+  simple_dart_modal_controller: ^0.0.7
+  simple_dart_select_field: ^0.0.3
   simple_dart_theme_controller: ^0.0.1
-  simple_dart_ui_core: ^0.0.2
+  simple_dart_ui_core: ^0.0.3
   simple_dart_view_controller: ^0.0.1
 
 

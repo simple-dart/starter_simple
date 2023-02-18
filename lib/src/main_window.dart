@@ -1,16 +1,15 @@
 import 'dart:html';
 
-import 'package:simple_dart_checkbox/simple_dart_checkbox.dart';
 import 'package:simple_dart_label/simple_dart_label.dart';
 import 'package:simple_dart_link/simple_dart_link.dart';
 import 'package:simple_dart_modal_controller/simple_dart_modal_controller.dart';
-import 'package:simple_dart_select_field/simple_dart_select_field.dart';
 import 'package:simple_dart_theme_controller/simple_dart_theme_controller.dart';
 import 'package:simple_dart_ui_core/simple_dart_ui_core.dart';
 import 'package:simple_dart_view_controller/simple_dart_view_controller.dart';
 
 import 'nav_bar.dart';
 import 'path_bar.dart';
+import 'theme_dropdown.dart';
 import 'view.dart';
 
 class MainWindow extends PanelComponent {
@@ -31,8 +30,7 @@ class MainWindow extends PanelComponent {
     ..vAlign = Align.center;
   NavBar navBar = NavBar()..width = '200px';
   PathBar pathBar = PathBar()..height = '40px';
-  SelectField themeSelect = SelectField();
-  Checkbox monospaceCheckbox = Checkbox();
+  ThemeDropDown themeDropDown = ThemeDropDown();
 
   MainWindow() : super('MainWindow') {
     fullSize();
@@ -63,12 +61,6 @@ class MainWindow extends PanelComponent {
       }
     });
 
-    themeSelect
-      ..initOptions(themeController.themeList.toList())
-      ..value = [themeController.theme];
-    themeSelect.onValueChange.listen((valueChangeEvent) async {
-      themeController.theme = valueChangeEvent.newValue.first;
-    });
     themeController.onThemeChange.listen((themeChangeEvent) {
       navBar.reRender();
       pathBar.reRender();
@@ -78,12 +70,6 @@ class MainWindow extends PanelComponent {
         }
       }
     });
-    monospaceCheckbox
-      ..caption = 'Monospace'
-      ..value = themeController.monoSpaceFont
-      ..onValueChange.listen((valueChangeEvent) async {
-        themeController.monoSpaceFont = valueChangeEvent.newValue;
-      });
     themeController.onMonoSpaceFontChange.listen((monoSpaceFontChangeEvent) {
       navBar.reRender();
       pathBar.reRender();
@@ -106,13 +92,25 @@ void showFatalError(Object errObj) {
   modalController.onClick.listen((event) {
     window.location.assign('/');
   });
-  modalController.showModal(Label()..caption = errText);
+  final errorPanel = Panel()
+    ..addCssClass('DropdownDropPanel')
+    ..padding = '10px'
+    ..width = '35%'
+    ..hAlign = Align.center
+    ..add(Label()..caption = errText);
+  modalController.showModal(errorPanel, top: '25%');
   throw Exception(errObj);
 }
 
 String showError(Object errObj) {
   final errText = convertError(errObj);
-  modalController.showModal(Label()..caption = errText);
+  final errorPanel = Panel()
+    ..addCssClass('DropdownDropPanel')
+    ..padding = '10px'
+    ..width = '35%'
+    ..hAlign = Align.center
+    ..add(Label()..caption = errText);
+  modalController.showModal(errorPanel, top: '25%');
   return errText;
 }
 

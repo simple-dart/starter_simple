@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Add Theme Dropdown widget
+
 ## 0.0.4
 
 - Update modal_controller to version 0.0.2
