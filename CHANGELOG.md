@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Change Theme Dropdown widget align
+
 ## 0.0.5
 
 - Add Theme Dropdown widget

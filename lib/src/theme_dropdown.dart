@@ -5,7 +5,11 @@ import 'package:simple_dart_select_field/simple_dart_select_field.dart';
 import 'package:simple_dart_theme_controller/simple_dart_theme_controller.dart';
 
 class ThemeDropDown extends Dropdown {
-  final displayLabel = Label()..caption = 'Select Theme';
+  final displayLabel = Label()
+    ..caption = 'Select Theme'
+    ..fullWidth()
+    ..fillContent = true
+    ..wrap = true;
   final headerLabel = Label()..caption = 'Theme:';
   final Checkbox monoSpaceFontCheckbox = Checkbox()..caption = 'Monospace';
   SelectField<String> selectField = SelectField<String>()..fillContent = true;
@@ -29,7 +33,7 @@ class ThemeDropDown extends Dropdown {
   }
 
   void refreshDisplay() {
-    displayLabel.caption = '${themeController.theme} Theme ${(themeController.monoSpaceFont) ? '(Mono)' : ''}';
+    displayLabel.caption = '${themeController.theme} Theme ${(themeController.monoSpaceFont) ? 'Monospace' : ''}';
   }
 
   @override
